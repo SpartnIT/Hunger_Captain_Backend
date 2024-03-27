@@ -32,7 +32,7 @@ DEBUG = True
 ALLOWED_HOSTS = ['*']
 CORS_ALLOW_ALL_ORIGINS = True
 X_FRAME_OPTIONS = '*'
-CSRF_TRUSTED_ORIGINS = ['http://127.0.0.1:8000/'"https://hunger-captain-backend.onrender.com"]
+CSRF_TRUSTED_ORIGINS = ['http://127.0.0.1:8000/', "https://hunger-captain-backend.onrender.com"]
 
 # Application definition
 
