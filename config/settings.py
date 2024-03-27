@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/3.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
-
+import os
 from pathlib import Path
 # import django_heroku
 import cloudinary
@@ -56,7 +56,9 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     # To allow CORS (Cross-origin resource sharing)
     'corsheaders.middleware.CorsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.middleware.security.SecurityMiddleware',
+    
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -86,20 +88,6 @@ TEMPLATES = [
 WSGI_APPLICATION = 'config.wsgi.application'
 
 
-# Database
-# https://docs.djangoproject.com/en/3.2/ref/settings/#databases
-
-# Heroku Database
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': 'd3ebuilcc5k4pg',
-#         'USER': 'fusmyzunpgeyqp',
-#         'PORT': 5432,
-#         'HOST': 'ec2-3-230-122-20.compute-1.amazonaws.com',
-#         'PASSWORD': 'fa5653430576bbc21b3ce72aae68281810b77e24395e3b5dc2f05c18c938dee3',
-#     }
-# }
 
 # Local Database
 DATABASES = {
@@ -108,10 +96,6 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
-
-# Heroku PostgreSQL Database
-# django_heroku.settings(locals())
-
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
